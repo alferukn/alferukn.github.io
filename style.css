@@ -1,0 +1,194 @@
+[data-theme="noir-metal"] {
+  color-scheme: dark;
+
+  --color-base-100: #040505;
+  --color-base-200: #090c0b;
+  --color-base-300: #111715;
+  --color-base-content: #d4dcd7;
+
+  --color-primary: #3b5c4d;
+  --color-primary-content: #e6eee9;
+
+  --color-secondary: #1e2a25;
+  --color-secondary-content: #cfd8d3;
+
+  --color-accent: #8fa399;
+  --color-accent-content: #040505;
+
+  --color-neutral: #0f1312;
+  --color-neutral-content: #c5ceca;
+
+  --color-info: #4b6b63;
+  --color-info-content: #e6eee9;
+  --color-success: #3b5c4d;
+  --color-success-content: #e6eee9;
+  --color-warning: #7a6845;
+  --color-warning-content: #f2ede2;
+  --color-error: #6b2c2c;
+  --color-error-content: #f2e4e4;
+
+  --radius-selector: 0rem;
+  --radius-field: 0rem;
+  --radius-box: 0rem;
+
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 1;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--color-base-100);
+  background-image: radial-gradient(ellipse 75% 45% at 50% 0%, rgba(59, 92, 77, 0.14), transparent 70%);
+  position: relative;
+}
+
+.font-display {
+  font-family: 'Oswald', sans-serif;
+}
+
+.font-gothic {
+  font-family: 'UnifrakturMaguntia', serif;
+}
+
+.font-mono {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.055;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.noir-photo-wrap {
+  position: relative;
+  isolation: isolate;
+  background-color: #040505;
+}
+
+.noir-photo {
+  filter: grayscale(60%) contrast(122%) brightness(85%);
+  transition: filter 0.45s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.noir-photo-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(28, 70, 54, 0.48) 0%, rgba(12, 34, 26, 0.58) 100%);
+  mix-blend-mode: color;
+  opacity: 0.72;
+  transition: opacity 0.45s ease;
+}
+
+.noir-photo-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 44%, transparent 44%, rgba(4, 5, 5, 0.78) 100%),
+    linear-gradient(to top, var(--color-base-100) 0%, transparent 22%);
+}
+
+.noir-photo-wrap:hover .noir-photo {
+  filter: grayscale(35%) contrast(120%) brightness(94%);
+}
+
+.noir-photo-wrap:hover::before {
+  opacity: 0.45;
+}
+
+.btn-metal,
+.btn-metal-primary {
+  position: relative;
+  border-radius: 0 !important;
+  box-shadow: none;
+  transition: all 0.22s ease;
+}
+
+.btn-metal {
+  background: linear-gradient(180deg, #0b0e0d 0%, #050706 100%);
+  border: 1px solid rgba(212, 220, 215, 0.28);
+  color: var(--color-base-content);
+}
+
+.btn-metal:hover {
+  background: #d4dcd7;
+  border-color: #d4dcd7;
+  color: #040505;
+  box-shadow: 0 0 22px rgba(143, 163, 153, 0.22);
+}
+
+.btn-metal-primary {
+  background: linear-gradient(180deg, #1b2c24 0%, #0d1713 100%);
+  border: 1px solid rgba(143, 163, 153, 0.55);
+  color: #e6eee9;
+}
+
+.btn-metal-primary:hover {
+  background: linear-gradient(180deg, #2b4539 0%, #16261f 100%);
+  border-color: #c9d6cf;
+  color: #ffffff;
+  box-shadow: 0 0 26px rgba(59, 92, 77, 0.45);
+}
+
+.btn-metal::before,
+.btn-metal-primary::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border: 1px solid rgba(212, 220, 215, 0.08);
+  pointer-events: none;
+}
+
+.card-noir {
+  position: relative;
+  border-radius: 0 !important;
+}
+
+.card-noir::before,
+.card-noir::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.card-noir::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1px solid rgba(143, 163, 153, 0.75);
+  border-left: 1px solid rgba(143, 163, 153, 0.75);
+}
+
+.card-noir::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 1px solid rgba(143, 163, 153, 0.75);
+  border-right: 1px solid rgba(143, 163, 153, 0.75);
+}
+
+.divider::before,
+.divider::after {
+  height: 1px !important;
+  background-color: rgba(212, 220, 215, 0.16) !important;
+}
+
+[data-lang-btn].lang-active {
+  background-color: var(--color-primary);
+  color: var(--color-primary-content);
+  border-color: var(--color-accent);
+}
